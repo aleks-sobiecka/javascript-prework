@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function playGame(playerInput){
   clearMessages();
 
@@ -28,27 +31,35 @@ printMessage('Twój ruch to: ' + argPlayerMove);
 
 console.log('moves:', argComputerMove, argPlayerMove);
 
+
+
 function displayResult(argComputerMove, argPlayerMove){
 if (argComputerMove == 'kamień' && argPlayerMove == 'papier'){
   printMessage('Ty wygrywasz!');
+  playerScore = playerScore + 1;
 } else if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce'){
   printMessage('Przegrywasz!');
+  computerScore = computerScore +1;
 } else if (argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
   printMessage('Remis!');
 } else if (argComputerMove == 'kamień' && argPlayerMove == 'nieznany ruch'){
   printMessage('Wykonałeś błędny ruch!');
 } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień'){
   printMessage('Przegrywasz!');
+  computerScore = computerScore +1;
 } else if (argComputerMove == 'papier' && argPlayerMove == 'papier'){
   printMessage('Remis!');
 } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
   printMessage('Ty wygrywasz!');
+  playerScore = playerScore + 1;
 } else if (argComputerMove == 'papier' && argPlayerMove == 'nieznany ruch'){
   printMessage('Wykonałeś błędny ruch!');
 } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
   printMessage('Ty wygrywasz!');
+  playerScore = playerScore + 1;
 } else if (argComputerMove == 'nożyce' && argPlayerMove == 'papier'){
   printMessage('Przegrywasz!');
+  computerScore = computerScore +1;
 } else if (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'){
   printMessage('Remis!');
 } else if (argComputerMove == 'nożyce' && argPlayerMove == 'nieznany ruch'){
@@ -57,6 +68,9 @@ if (argComputerMove == 'kamień' && argPlayerMove == 'papier'){
 }
 
 let result = displayResult(argComputerMove, argPlayerMove);
+
+printMessage('Twój wynik : Mój Wynik')
+printMessage(playerScore + ':' + computerScore)
 }
 
 document.getElementById('play-rock').addEventListener('click', function(){
