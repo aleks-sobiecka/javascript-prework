@@ -4,31 +4,64 @@ let computerScore = 0;
 function playGame(playerInput){
   clearMessages();
 
-function getMoveName(argMoveId){
-  if(argMoveId == 1){
-    return 'kamień';
-  } else if (argMoveId == 2) {
-    return 'papier';
-  } else if (argMoveId == 3) {
-    return 'nożyce';
+  function getMoveName(argMoveId){
+    if(argMoveId == 1){
+      return 'kamień';
+    } else if (argMoveId == 2) {
+      return 'papier';
+    } else if (argMoveId == 3) {
+      return 'nożyce';
+    } else {
+      printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+      return 'nieznany ruch';
+    }
+  }
+  
+  console.log('Gracz wpisał: ' + playerInput);
+  let argPlayerMove = getMoveName(playerInput);
+
+
+
+
+/*let randomNumber = Math.floor(Math.random() * 3 + 1);
+console.log('Wylosowana liczba to: ' + randomNumber);
+let argComputerMove = getMoveName(randomNumber);
+printMessage('Mój ruch to: ' + argComputerMove);*/
+
+function getComputerResult(argResultId){
+  if(argResultId == 1){
+    return 'computer win';
   } else {
-    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-    return 'nieznany ruch';
+    return 'computer lose'
   }
 }
 
+function getComputerMove(argComputerResult, argPlayerMove){
+  if (argComputerResult == 'computer win' && argPlayerMove == 'kamień'){
+    return 'papier';
+  } else if (argComputerResult == 'computer win' && argPlayerMove == 'papier'){
+    return 'nożyce';
+  } else if (argComputerResult == 'computer win' && argPlayerMove == 'nożyce'){
+    return 'kamień';
+  } else if (argComputerResult == 'computer lose' && argPlayerMove == 'kamień'){
+    return 'nożyce';
+  } else if (argComputerResult == 'computer lose' && argPlayerMove == 'papier'){
+    return 'kamień';
+  } else if (argComputerResult == 'computer lose' && argPlayerMove == 'nożyce'){
+    return 'papier';
+  }
+}
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
+let randomNumber = Math.floor(Math.random() * 4 + 1);
 console.log('Wylosowana liczba to: ' + randomNumber);
-let argComputerMove = getMoveName(randomNumber);
+let argComputerResult = getComputerResult(randomNumber);
+console.log('Komputer wylosował wynik: '+ argComputerResult);
+let argComputerMove = getComputerMove(argComputerResult, argPlayerMove);
+console.log('Komputer wybrał ruch: '+ argComputerMove);
+
+
 printMessage('Mój ruch to: ' + argComputerMove);
-
-
-console.log('Gracz wpisał: ' + playerInput);
-let argPlayerMove = getMoveName(playerInput);
 printMessage('Twój ruch to: ' + argPlayerMove);
-
-
 console.log('moves:', argComputerMove, argPlayerMove);
 
 
