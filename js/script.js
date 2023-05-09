@@ -69,7 +69,7 @@ if (argComputerMove == 'kamień' && argPlayerMove == 'papier'){
 
 let result = displayResult(argComputerMove, argPlayerMove);
 
-printMessage('Twój wynik : Mój Wynik')
+printMessage('Wynik')
 printMessage(playerScore + ':' + computerScore)
 }
 
