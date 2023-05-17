@@ -19,7 +19,8 @@ const playGame = function (playerInput){
   }
   
   console.log('Gracz wpisał: ' + playerInput);
-  let argPlayerMove = getMoveName(playerInput);
+  const argPlayerMove = getMoveName(playerInput);
+  console.log('Gracz wybrał ruch: '+ argPlayerMove);
 
 
 const getComputerResult = function (argResultId){
@@ -46,11 +47,11 @@ const getComputerMove = function (argComputerResult, argPlayerMove){
   }
 }
 
-let randomNumber = Math.floor(Math.random() * 4 + 1);
+const randomNumber = Math.floor(Math.random() * 4 + 1);
 console.log('Wylosowana liczba to: ' + randomNumber);
-let argComputerResult = getComputerResult(randomNumber);
+const argComputerResult = getComputerResult(randomNumber);
 console.log('Komputer wylosował wynik: '+ argComputerResult);
-let argComputerMove = getComputerMove(argComputerResult, argPlayerMove);
+const argComputerMove = getComputerMove(argComputerResult, argPlayerMove);
 console.log('Komputer wybrał ruch: '+ argComputerMove);
 
 
@@ -94,7 +95,7 @@ if (argComputerMove == 'kamień' && argPlayerMove == 'papier'){
 }
 }
 
-let result = displayResult(argComputerMove, argPlayerMove);
+const result = displayResult(argComputerMove, argPlayerMove);
 
 printMessage('Wynik')
 printMessage(playerScore + ':' + computerScore)
